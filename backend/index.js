@@ -37,8 +37,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ROUTES */
-app.use("/recipes", recipeRoutes);
 app.post("/recipes", upload.single("picture"), createRecipe);
+app.use("/recipes", recipeRoutes);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

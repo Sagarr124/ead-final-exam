@@ -2,15 +2,11 @@ import express from "express";
 import {
   getRecipe,
   getRecipes,
-  createRecipe,
   updateRecipe,
   deleteRecipe,
 } from "../controllers/recipeControllers.js";
 
 const router = express.Router();
-
-/* CREATE */
-// router.post("/", createRecipe);
 
 /* READ */
 router.get("/", getRecipes);
