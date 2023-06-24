@@ -8,6 +8,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import path from "path";
 import { fileURLToPath } from "url";
+import recipeRoutes from "./routes/recipeRoutes.js";
+import { createRecipe } from "./controllers/recipeControllers.js";
 
 /* CONFIGURATIONS */
 const __filename = fileURLToPath(import.meta.url);
@@ -35,6 +37,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 /* ROUTES */
+app.use("/recipes", recipeRoutes);
+app.post("/recipes", upload.single("picture"), createRecipe);
 
 /* MONGOOSE SETUP */
 const PORT = process.env.PORT || 6001;

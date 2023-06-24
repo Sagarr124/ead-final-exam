@@ -9,15 +9,17 @@ const recipeSchema = new mongoose.Schema(
     description: {
       type: String,
       required: true,
-      min: 5,
+      default: "",
     },
     ingredients: {
       type: Array,
       default: [],
+      required: true,
     },
     intructions: {
       type: String,
       default: "",
+      required: true,
     },
     image: {
       type: String,
